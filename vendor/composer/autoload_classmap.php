@@ -6,13 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Admin' => $baseDir . '/moderator/admin.php',
     'AppConfig' => $baseDir . '/includes/AppConfig.php',
+    'URLConfig' => $baseDir . '/includes/URLConfig.php',
     'User' => $baseDir . '/mysql/user.php',
     'clsMain' => $baseDir . '/utility/clsMain.php',
-    'filterSecurity' => $baseDir . '/utility/filterSecurity.php',
     'imageUpload' => $baseDir . '/utility/imageUpload.php',
     'mysql' => $baseDir . '/mysql/mysql.php',
     'security' => $baseDir . '/utility/security.php',
     'socialSharing' => $baseDir . '/utility/socialSharing.php',
-    'URLConfig' => $baseDir . '/includes/URLConfig.php',
 );

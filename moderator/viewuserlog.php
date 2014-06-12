@@ -1,10 +1,5 @@
 <?php
-session_start();
-require_once('../includes/config.php');
-require_once('../utility/writeLog.php');
-require_once('../utility/clsMain.php');
-require_once('../mysql/mysql.php');
-require_once('admin.php');
+require_once './includes.php';
 if (!isset($_SESSION['UserAdmin'])) {
     header("Location: index.php");
     exit;
@@ -19,7 +14,7 @@ if (isset($_REQUEST['startdate'], $_REQUEST['enddate'], $_REQUEST['name'], $_REQ
 
     $rows = $dbobj->getUserLogList($_REQUEST['startdate'], $_REQUEST['enddate'], $_REQUEST['userid']);
     $i = 0;
-    $visitType = array('M' => 'Microsite', 'F' => 'Facebook','W'=>'Mobile/Tablet');
+    $visitType = array('M' => 'Microsite', 'F' => 'Facebook', 'W' => 'Mobile/Tablet');
     if ($rows != false) {
         while ($row = $dbobj->dbFetchArray($rows)) {
             $logsstr.='<tr>
@@ -33,8 +28,8 @@ if (isset($_REQUEST['startdate'], $_REQUEST['enddate'], $_REQUEST['name'], $_REQ
     $name.=" | Total Log Count is : " . $i;
 }
 ?>
-<link rel="stylesheet" type="text/css" media="all" href="css/Style.css" />
-<script type="text/javascript" src="../js/jquery.min.js"></script>
+<?php require_once 'cssheader.php';
+clsMain::include_online_jquery(); ?>
 <table border="0" cellpadding="4" cellspacing="1" class="gridtable" width="100%" style="font-size: 12px;font-family:arial;">
     <tr>
         <td>User Name</td>
@@ -46,14 +41,14 @@ if (isset($_REQUEST['startdate'], $_REQUEST['enddate'], $_REQUEST['name'], $_REQ
     <tr>
         <th>S. No.</th>
         <th>User IP</th>
-         <th>Entry Type</th>
+        <th>Entry Type</th>
         <th>Visit Date</th>
     </tr>
-    <?php echo $logsstr; ?>
+<?php echo $logsstr; ?>
 
 </table>
 <script type="text/javascript">
-    $(document).ready(function (){
+    $(document).ready(function() {
         $(".gridtable").find("tr:even").addClass("alt");
     });
 </script>

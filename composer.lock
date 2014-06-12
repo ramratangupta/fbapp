@@ -4,28 +4,32 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b17ebd758c14bd99d05352b2069a6e15",
+    "hash": "b8e30192bab9b3141afda2922e5ce2fb",
     "packages": [
         {
             "name": "facebook/php-sdk-v4",
-            "version": "4.0.6",
+            "version": "4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
-                "reference": "14bdf335530345faff1d6a796189dc902a54b162"
+                "reference": "4d77aa2fe57a3777040d6a60aa31fbe7465cb4ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/14bdf335530345faff1d6a796189dc902a54b162",
-                "reference": "14bdf335530345faff1d6a796189dc902a54b162",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/4d77aa2fe57a3777040d6a60aa31fbe7465cb4ca",
+                "reference": "4d77aa2fe57a3777040d6a60aa31fbe7465cb4ca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "~4.0",
                 "mockery/mockery": "dev-master",
                 "phpunit/phpunit": "3.7.*"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
             },
             "type": "library",
             "autoload": {
@@ -49,7 +53,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2014-05-21 05:26:30"
+            "time": "2014-06-10 20:42:16"
         }
     ],
     "packages-dev": [

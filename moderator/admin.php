@@ -1,12 +1,14 @@
 <?php
 
+require_once './includes.php';
+
 class Admin extends mysql {
 
     public $_table = "";
 
     public function __construct() {
         $this->dbConnect();
-        $this->_table = DB_PREFIX . "_admin";
+        $this->_table = AppConfig::DB_PREFIX . "_admin";
     }
 
     public function login($username, $userpass) {
@@ -70,7 +72,7 @@ class Admin extends mysql {
         $start = mysql_real_escape_string(trim($startdate));
         $end = mysql_real_escape_string(trim($enddate));
 
-        $sql = "SELECT *  FROM " . DB_PREFIX . "_users_logs where fk_user_id=" . $id . "
+        $sql = "SELECT *  FROM " . AppConfig::DB_PREFIX . "_users_logs where fk_user_id=" . $id . "
             and created_on  BETWEEN '" . $start . " 00:00:00' AND '" . $end . " 23:59:59' ORDER BY users_logs_id desc";
 
         $result = $this->dbQuery($sql);
@@ -82,4 +84,3 @@ class Admin extends mysql {
     }
 
 }
-

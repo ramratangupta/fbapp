@@ -89,6 +89,7 @@ if (isset($_POST['username'], $_POST['password'])) {
         }
         echo "<br/> Creating Upload Dir";
         chdir("..");
+        mkdir('error_log',0755);
         mkdir(AppConfig::UPLOAD_DIR, 0755);
         chdir(AppConfig::UPLOAD_DIR);
         mkdir(AppConfig::ORIGINAL_FILE_PATH, 0755);

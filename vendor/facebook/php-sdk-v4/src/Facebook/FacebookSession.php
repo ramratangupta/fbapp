@@ -55,7 +55,7 @@ class FacebookSession
   /**
    * @var bool
    */
-  private static $useAppSecretProof = false;
+  private static $useAppSecretProof = true;
 
   /**
    * When creating a Session from an access_token, use:
@@ -238,8 +238,12 @@ class FacebookSession
   {
     $targetAppId = static::_getTargetAppId($appId);
     if ($tokenInfo->getAppId() !== $targetAppId
-      || !$tokenInfo->isValid() || $tokenInfo->getExpiresAt() === null
-      || $tokenInfo->getExpiresAt()->getTimestamp() < time()) {
+      || !$tokenInfo->isValid()
+      || (
+        $tokenInfo->getExpiresAt() !== null
+        && $tokenInfo->getExpiresAt()->getTimestamp() < time()
+        )
+      ) {
       throw new FacebookSDKException(
         'Session has expired, or is not valid for this app.', 601
       );

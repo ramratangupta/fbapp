@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of URLConfig
+ * Get website url HTTP/HTTPS
  *
  * @author ragupta
  */
@@ -15,6 +15,9 @@ class URLConfig {
 
     //put your code here
     //Domain and Website
+    /**
+     * if www need to be omit then keep it blank eles you can keep it www
+     */
     const www_protocol = '';
 
     private $HTTP_PROTOCOL;
@@ -24,7 +27,7 @@ class URLConfig {
     protected $UNSECURE_WWW_SITE_ROOT;
 
     function __construct() {
-
+        //Logic to check code is running on HTTP or HTTPS
         if (isset($_SERVER['HTTPS'])) {
             if ($_SERVER['HTTPS'] == 'off')
                 $this->HTTP_PROTOCOL = "http";
@@ -32,7 +35,7 @@ class URLConfig {
                 $this->HTTP_PROTOCOL = "https";
         } else
             $this->HTTP_PROTOCOL = "http";
-        $this->app_path = "://" . self::www_protocol . "localhost/FacebookGraph2.0/";
+        $this->app_path = "://" . self::www_protocol . APP_FOLDER_NAME;
         $this->WWW_SITE_URL = $this->HTTP_PROTOCOL . $this->app_path . "index.php";
         $this->WWW_SITE_ROOT = $this->HTTP_PROTOCOL . $this->app_path;
         $this->UNSECURE_WWW_SITE_ROOT = "http" . $this->app_path;

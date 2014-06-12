@@ -1,11 +1,7 @@
 <?php
 
-session_start();
-require_once('../includes/define.php');
-require_once('../includes/config.php');
-require_once('../mysql/mysql.php');
-require_once('../utility/clsMain.php');
-require_once('admin.php');
+require_once './includes.php';
+
 if (!isset($_SESSION['UserAdmin'])) {
     header("Location: index.php");
     exit;
@@ -29,7 +25,7 @@ $toDate = explode(" ", $enddate);
 
 $file_type = "vnd.ms-excel";
 $file_ending = ".xls";
-$title = 'Vanish Mother Day ';
+$title = AppConfig::appName;
 $temp = str_replace(" ", "_", ucfirst($title));
 
 if ($fromDate['0'] == $toDate['0']) {
@@ -72,17 +68,7 @@ if (isset($_REQUEST['option'])) {
                 'user_type' => 'Login Type(F->Facebook,M->Microsite)',
             );
 
-            $result = $dbObj->getExcalList('aircel_users', 'created_on', 'user_id', $coulmnData, $startdate, $enddate);
-            break;
-
-        case 'vanish_postcard':
-            $start = mysql_real_escape_string(trim($startdate));
-            $end = mysql_real_escape_string(trim($enddate));
-             $sql = "SELECT e.entry_id 'Unique ID emboss on image',e.momname 'Mom Name'"
-            . ",e.address 'Address',e.momsaid 'What mom said',e.template_id 'Template Selected',e.videothumb 'Post Card Image Name', count(v.vote_id) Vote_Count  "
-            . "FROM `vanish_entries` e left join vanish_entries_vote v on e.entry_id = v.entry_id "
-            . "where e.isfinal='Y'  and e.created_on BETWEEN '" . $start . " 00:00:00' AND '" . $end . " 23:59:59' group by e.entry_id order by e.entry_id desc";
-            $result = $dbObj->dbQuery($sql);
+            $result = $dbObj->getExcalList(AppConfig::DB_PREFIX.'_users', 'created_on', 'user_id', $coulmnData, $startdate, $enddate);
             break;
     }
 }
