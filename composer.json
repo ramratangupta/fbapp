@@ -1,0 +1,19 @@
+{
+    "name": "digitas/facebook-graph2-0",
+    "description": "Description of project Facebook Graph2.0.",
+    "authors": [
+        {
+            "name": "Ramratan Gupta",
+            "email": "ramratan.gupta@gmail.com"
+        }
+    ],
+    "require": {
+        "facebook/php-sdk-v4": "4.0.*"
+    },
+    "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                },
+                "classmap":["includes","utility","mysql"]
+            }
+}

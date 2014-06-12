@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11 Jun, 2014, 11:24:52 AM
+    Author     : ragupta
+*/
+@charset "utf-8";
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.album{width:534px; float:left; border:10px solid #848483; border-radius:5px;}
+.inner_album{width:534px; float:left;}
+.choose_photo{width:524px; float:left; background:#4b67a1; height:28px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:normal; color:#FFF; line-height:28px; padding:0 0 0 10px;}
+.recent_photo{width:534px; float:left; background:#e0e0e0; height:30px; line-height:30px;} 
+.upload{ width:350px; float:left; margin:0 0 0 10px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#343434;}
+.view_upload{ width:140px; float:right; margin:0 10px 0 0; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#204798;}
+.album_images{width:534px; float:left;}
+.all_images{ width:523px; float:left; padding:10px 0 10px 10px; height:355px; overflow:auto;}
+.all_images ul{list-style:none; margin:0px; padding:0px;}
+.all_images ul li{width:158px; float:left; padding:5px;}
+.all_images ul li span{font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold; color:#343434;}
+
