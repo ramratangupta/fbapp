@@ -35,7 +35,7 @@ class URLConfig {
                 $this->HTTP_PROTOCOL = "https";
         } else
             $this->HTTP_PROTOCOL = "http";
-        $this->app_path = "://" . self::www_protocol . APP_FOLDER_NAME;
+        $this->app_path = "://" . self::www_protocol . AppConfig::APP_FOLDER_NAME;
         $this->WWW_SITE_URL = $this->HTTP_PROTOCOL . $this->app_path . "index.php";
         $this->WWW_SITE_ROOT = $this->HTTP_PROTOCOL . $this->app_path;
         $this->UNSECURE_WWW_SITE_ROOT = "http" . $this->app_path;
