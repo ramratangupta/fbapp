@@ -119,9 +119,9 @@ class AppConfig {
      */
     const BRAND_COLOR = "darkgrey";
     /**
-     * 
+     * full application folder name without www/http and should ends with / like localhost/fold1/fold2/
      */
-    const APP_FOLDER_NAME="localhost/FacebookGraph2.0/";
+    const APP_FOLDER_NAME="";
 
 }
 
